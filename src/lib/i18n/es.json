@@ -487,7 +487,9 @@
       "limit_rate": "Limitar velocidad",
       "sleep_interval": "Intervalo de espera",
       "limit_rate_ph": "p. ej. 1M",
-      "sleep_interval_ph": "p. ej. 5"
+      "sleep_interval_ph": "p. ej. 5",
+      "impersonate": "Impersonate browser",
+      "impersonate_ph": "e.g. chrome"
     },
     "advanced": {
       "title": "Avanzado",

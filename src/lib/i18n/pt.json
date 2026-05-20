@@ -487,7 +487,9 @@
       "limit_rate": "Limitar taxa",
       "sleep_interval": "Intervalo de espera",
       "limit_rate_ph": "ex.: 1M",
-      "sleep_interval_ph": "ex.: 5"
+      "sleep_interval_ph": "ex.: 5",
+      "impersonate": "Impersonate browser",
+      "impersonate_ph": "e.g. chrome"
     },
     "advanced": {
       "title": "Avançado",

@@ -487,7 +487,9 @@
       "limit_rate": "Limit rate",
       "sleep_interval": "Sleep interval",
       "limit_rate_ph": "e.g. 1M",
-      "sleep_interval_ph": "e.g. 5"
+      "sleep_interval_ph": "e.g. 5",
+      "impersonate": "Impersonate browser",
+      "impersonate_ph": "e.g. chrome"
     },
     "advanced": {
       "title": "Advanced",

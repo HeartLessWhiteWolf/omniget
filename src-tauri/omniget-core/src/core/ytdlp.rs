@@ -31,6 +31,7 @@ type SponsorBlockModeFn = Box<dyn Fn() -> String + Send + Sync>;
 type SponsorBlockCategoriesFn = Box<dyn Fn() -> Vec<String> + Send + Sync>;
 type PerDomainCookieFn = Box<dyn Fn(&str) -> Option<PathBuf> + Send + Sync>;
 type ManagedCookiesOnlyFn = Box<dyn Fn() -> bool + Send + Sync>;
+type ExtraYtdlpFlagsFn = Box<dyn Fn() -> Vec<String> + Send + Sync>;
 
 static EXT_COOKIE_PATH_FN: OnceLock<ExtCookiePathFn> = OnceLock::new();
 static GLOBAL_COOKIE_FILE_FN: OnceLock<GlobalCookieFileFn> = OnceLock::new();
@@ -51,6 +52,7 @@ static CONCURRENT_FRAGMENTS_FN: OnceLock<ConcurrentFragmentsFn> = OnceLock::new(
 static USER_AGENT_FN: OnceLock<UserAgentFn> = OnceLock::new();
 static SPONSORBLOCK_MODE_FN: OnceLock<SponsorBlockModeFn> = OnceLock::new();
 static SPONSORBLOCK_CATEGORIES_FN: OnceLock<SponsorBlockCategoriesFn> = OnceLock::new();
+static EXTRA_YTDLP_FLAGS_FN: OnceLock<ExtraYtdlpFlagsFn> = OnceLock::new();
 
 pub fn set_ext_cookie_path_fn(f: impl Fn() -> PathBuf + Send + Sync + 'static) {
     let _ = EXT_COOKIE_PATH_FN.set(Box::new(f));
@@ -62,6 +64,14 @@ pub fn set_per_domain_cookie_fn(f: impl Fn(&str) -> Option<PathBuf> + Send + Syn
 
 pub fn set_managed_cookies_only_fn(f: impl Fn() -> bool + Send + Sync + 'static) {
     let _ = MANAGED_COOKIES_ONLY_FN.set(Box::new(f));
+}
+
+pub fn set_extra_ytdlp_flags_fn(f: impl Fn() -> Vec<String> + Send + Sync + 'static) {
+    let _ = EXTRA_YTDLP_FLAGS_FN.set(Box::new(f));
+}
+
+fn extra_ytdlp_flags_from_settings() -> Vec<String> {
+    EXTRA_YTDLP_FLAGS_FN.get().map(|f| f()).unwrap_or_default()
 }
 
 fn managed_cookies_only() -> bool {
@@ -1065,6 +1075,7 @@ pub async fn get_video_info(
 
         args.extend(proxy_args());
         args.extend(extra_flags.iter().cloned());
+        args.extend(extra_ytdlp_flags_from_settings());
         args.push(url.to_string());
 
         let child = crate::core::process::command(ytdlp)
@@ -1186,6 +1197,7 @@ pub async fn get_playlist_info(
 
     args.extend(proxy_args());
     args.extend(extra_flags.iter().cloned());
+    args.extend(extra_ytdlp_flags_from_settings());
     args.push(url.to_string());
 
     let output = tokio::time::timeout(
@@ -1638,6 +1650,7 @@ pub async fn download_video(
 
     base_args.extend(proxy_args());
     base_args.extend(extra_flags.iter().cloned());
+    base_args.extend(extra_ytdlp_flags_from_settings());
 
     if let Some(lang) = translate_metadata_lang() {
         base_args.push("--extractor-args".to_string());

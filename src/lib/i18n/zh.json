@@ -487,7 +487,9 @@
       "limit_rate": "限制速率",
       "sleep_interval": "等待间隔",
       "limit_rate_ph": "例如 1M",
-      "sleep_interval_ph": "例如 5"
+      "sleep_interval_ph": "例如 5",
+      "impersonate": "Impersonate browser",
+      "impersonate_ph": "e.g. chrome"
     },
     "advanced": {
       "title": "高级",

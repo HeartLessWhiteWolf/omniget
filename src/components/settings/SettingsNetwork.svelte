@@ -61,6 +61,7 @@
     { flag: "--geo-bypass", key: "geo_bypass" },
     { flag: "--limit-rate", key: "limit_rate", hasValue: true, phKey: "limit_rate_ph" },
     { flag: "--sleep-interval", key: "sleep_interval", hasValue: true, phKey: "sleep_interval_ph" },
+    { flag: "--impersonate", key: "impersonate", hasValue: true, phKey: "impersonate_ph" },
   ];
 
   async function toggleFlag(flag: string) {

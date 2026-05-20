@@ -487,7 +487,9 @@
       "limit_rate": "Όριο ρυθμού",
       "sleep_interval": "Διάστημα αναμονής",
       "limit_rate_ph": "π.χ. 1M",
-      "sleep_interval_ph": "π.χ. 5"
+      "sleep_interval_ph": "π.χ. 5",
+      "impersonate": "Impersonate browser",
+      "impersonate_ph": "e.g. chrome"
     },
     "advanced": {
       "title": "Για προχωρημένους",

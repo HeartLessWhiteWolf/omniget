@@ -973,6 +973,8 @@ export type TranslationKeys =
   | 'settings.ytdlp_flags.restrict_filenames'
   | 'settings.ytdlp_flags.sleep_interval'
   | 'settings.ytdlp_flags.sleep_interval_ph'
+  | 'settings.ytdlp_flags.impersonate'
+  | 'settings.ytdlp_flags.impersonate_ph'
   | 'settings.ytdlp_flags.title'
   | 'settings.ytdlp_flags.write_comments'
   | 'settings.ytdlp_flags.write_description'

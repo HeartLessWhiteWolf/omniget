@@ -487,7 +487,9 @@
       "limit_rate": "レート制限",
       "sleep_interval": "待機間隔",
       "limit_rate_ph": "例: 1M",
-      "sleep_interval_ph": "例: 5"
+      "sleep_interval_ph": "例: 5",
+      "impersonate": "Impersonate browser",
+      "impersonate_ph": "e.g. chrome"
     },
     "advanced": {
       "title": "詳細設定",
