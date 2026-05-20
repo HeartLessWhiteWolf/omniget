@@ -30,9 +30,9 @@
   },
   "plugins": {
     "updater": {
-      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDYyOTlEMzE0MUJDMkREMTkKUldRWjNjSWJGTk9aWWtnazV5aTdTNTZ4dk93TVh3cUpxSWlpclRXNjlwYXA1ZXdrdlZsYUxQYzkK",
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDU5NTE0MTE3MjQ2NkVGNEIKUldSTDcyWWtGMEZSV2ZBRjNrWURzREk4eFliUXJ0anl0ejlPRUJQZUx2NU4wZi9ld21JZjI5WGQK",
       "endpoints": [
-        "https://github.com/tonhowtf/omniget/releases/latest/download/latest.json"
+        "https://github.com/HeartLessWhiteWolf/omniget/releases/latest/download/latest.json"
       ]
     },
     "deep-link": {
